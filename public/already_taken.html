@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance recorded</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+        }
+
+        .container {
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            background-color: #7b45a0;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Attendance recorded!</h2>
+        <p>Your attendance has been sent to the representative.</p>
+        <!-- Reset button to clear localStorage and redirect back to the attendance page -->
+        <button id="reset-attendance">Go back</button>
+    </div>
+
+    <script>
+        document.getElementById("reset-attendance").addEventListener("click", () => {
+            // Clear the attendance flag from localStorage
+            localStorage.setItem("attendanceTaken", "false");
+
+            // Redirect to the attendance page
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+
+</html>

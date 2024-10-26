@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Attendance Protocol</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #333;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #6c3baa;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Form Styles */
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background: linear-gradient(135deg, #6c3baa, #6c3baa);
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #7b45a0, #6c3baa);
+}
+
+/* Video and Canvas Styles */
+video, canvas {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #6c3baa, #6c3baa);
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+
+<body>
+    <h1>AI&DS - 'E' IAP (Internal Attendance Protocol)</h1> <!-- Title at the top -->
+    <div class="container">
+        <h2>Record Attendance</h2>
+        <select id="student-name">
+            <option value="" disabled selected>Select your name</option>
+            <option value="RASOOL M">RASOOL M</option>
+            <option value="RATHISH P N">RATHISH P N</option>
+            <option value="RAVIKUMAR R">RAVIKUMAR R</option>
+            <option value="REETHU NIVYAA V">REETHU NIVYAA V</option>
+            <option value="RISHI M S">RISHI M S</option>
+            <option value="RITESH M S">RITESH M S</option>
+            <option value="ROHAN KUMAR E">ROHAN KUMAR E</option>
+            <option value="ROHIT R">ROHIT R</option>
+            <option value="SABARINATHAN M">SABARINATHAN M</option>
+            <option value="SAGAR M">SAGAR M</option>
+            <option value="SAHANNA B">SAHANNA B</option>
+            <option value="SAI VISHAL L N">SAI VISHAL L N</option>
+            <option value="SAILESH S">SAILESH S</option>
+            <option value="SAINDHAVI S">SAINDHAVI S</option>
+            <option value="SAJEEV MRITHUL S">SAJEEV MRITHUL S</option>
+            <option value="SAM MESHAK P">SAM MESHAK P</option>
+            <option value="SAMYUKTHA J">SAMYUKTHA J</option>
+            <option value="SANDHIYA L">SANDHIYA L</option>
+            <option value="SANJANA B">SANJANA B</option>
+            <option value="SANJAY J">SANJAY J</option>
+            <option value="SANJAY M">SANJAY M</option>
+            <option value="SANJAY N">SANJAY N</option>
+            <option value="SANJEEV G">SANJEEV G</option>
+            <option value="SANJEEV Y">SANJEEV Y</option>
+            <option value="SANTHOSH P">SANTHOSH P</option>
+            <option value="SANTHOSH R">SANTHOSH R</option>
+            <option value="SANTHOSH KUMAR S">SANTHOSH KUMAR S</option>
+            <option value="SANTHOSH PANDI M">SANTHOSH PANDI M</option>
+            <option value="SARAN NITHISH S">SARAN NITHISH S</option>
+            <option value="SARIKA V">SARIKA V</option>
+            <option value="SARUMATHI S">SARUMATHI</option>
+            <option value="SARVESH D">SARVESH D</option>
+            <option value="SEENUVASAN R">SEENUVASAN R</option>
+            <option value="SHAANA ZAIMA S">SHAANA ZAIMA S</option>
+            <option value="SHAILAJAA J">SHAILAJAA J</option>
+            <option value="SHALINI G">SHALINI G</option>
+            <option value="SHALINI SHAHANI C">SHALINI SHAHANI C</option>
+            <option value="SHAMEENA M">SHAMEENA M</option>
+            <option value="SHANDIYA S">SHANDIYA S</option>
+            <option value="SHANJITHKRISHNA V">SHANJITHKRISHNA V</option>
+            <option value="SHANKAR POOJA">SHANKAR POOJA</option>
+            <option value="SHANMUGA KRISHNAN S M">SHANMUGA KRISHNAN S M</option>
+            <option value="SHANMUGA SUNDARAM M">SHANMUGA SUNDARAM M</option>
+            <option value="SHANMUGANATHAN S S">SHANMUGANATHAN S S</option>
+            <option value="SHARIKAA D">SHARIKAA D</option>
+            <option value="SHERIN FAURGANA S">SHERIN FAURGANA S</option>
+            <option value="SHESHANK A">SHESHANK A</option>
+            <option value="SHIVANI S">SHIVANI S</option>
+            <option value="SHOBANA S">SHOBANA S</option>
+            <option value="SHREENANDH L S">SHREENANDH L S</option>
+            <option value="SHRINIDHI MEENA PALANIAPPAN">SHRINIDHI MEENA PALANIAPPAN</option>
+            <option value="SHRIYA R">SHRIYA R</option>
+            <option value="SHRUTHI S S">SHRUTHI S S</option>
+            <option value="SHYAM FRANCIS T">SHYAM FRANCIS T</option>
+            <option value="SHYLENDHAR M">SHYLENDHAR M</option>
+            <option value="SIDDARTHA MARIAPPAN S">SIDDARTHA MARIAPPAN S</option>
+            <option value="SIDHARTH P L">SIDHARTH P L</option>
+            <option value="SINDHUJA M">SINDHUJA M</option>
+            <option value="SIVAGURUNATHAN P">SIVAGURUNATHAN P</option>
+            <option value="SOFIA M">SOFIA M</option>
+            <option value="SORNESHVARAN D R">SORNESHVARAN D R</option>
+            <!-- Add more names as needed -->
+        </select>
+        <button id="record-attendance">Record Attendance</button>
+        <button id="mark-absent">Mark as Absent</button>
+        <button id="capture-image" style="display:none;">Capture Image</button>
+        <video id="camera-stream" autoplay></video>
+        <canvas id="captured-image" width="300" height="225"></canvas>
+    </div>
+    <footer>Made with ❤️ by Sidharth P.L</footer> <!-- Footer text -->
+
+    <script>
+        const attendanceTakenKey = "attendanceTaken";
+        const lastAttendanceDateKey = "lastAttendanceDate";
+        const studentNameKey = "studentName";
+        const captureButton = document.getElementById("capture-image");
+        const video = document.getElementById("camera-stream");
+        const canvas = document.getElementById("captured-image");
+        let cameraStream = null;
+
+        function checkAttendanceAllowed() {
+            const isAttendanceTaken = localStorage.getItem(attendanceTakenKey) === "true";
+            const lastAttendanceDate = localStorage.getItem(lastAttendanceDateKey);
+            const now = new Date();
+
+            if (lastAttendanceDate) {
+                const lastDate = new Date(lastAttendanceDate);
+                if (now.getDate() !== lastDate.getDate() || now.getHours() >= 8) {
+                    localStorage.setItem(attendanceTakenKey, "false");
+                }
+            }
+
+            if (localStorage.getItem(attendanceTakenKey) === "true") {
+                window.location.href = "already_taken.html";
+            }
+        }
+
+        function recordAttendance() {
+            const name = document.getElementById("student-name").value;
+            if (!name) {
+                alert("Please select your name.");
+                return;
+            }
+
+            localStorage.setItem(studentNameKey, name);
+            localStorage.setItem(attendanceTakenKey, "true");
+            localStorage.setItem(lastAttendanceDateKey, new Date().toISOString());
+
+            startCamera();
+        }
+
+        function markAsAbsent() {
+            const name = document.getElementById("student-name").value;
+            if (!name) {
+                alert("Please select your name.");
+                return;
+            }
+
+            localStorage.setItem(studentNameKey, name);
+            localStorage.setItem(attendanceTakenKey, "true");
+            localStorage.setItem(lastAttendanceDateKey, new Date().toISOString());
+
+            fetch("http://localhost:3000/absent", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message);
+                    window.location.href = "already_taken.html";
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                    cameraStream = stream;
+                    video.style.display = "block";
+                    captureButton.style.display = "block";
+                })
+                .catch(err => console.error("Camera error: ", err));
+        }
+
+        function stopCamera() {
+            if (cameraStream) {
+                let tracks = cameraStream.getTracks();
+                tracks.forEach(track => track.stop());
+            }
+        }
+
+        function sendAttendance() {
+            const name = document.getElementById("student-name").value;
+            const imageBase64 = canvas.toDataURL("image/png");
+
+            fetch("http://localhost:3000/attendance", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, image: imageBase64 }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message);
+                    window.location.href = "already_taken.html";
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
+        window.addEventListener("load", () => {
+            checkAttendanceAllowed();
+            const storedName = localStorage.getItem(studentNameKey);
+            if (storedName) {
+                document.getElementById("student-name").value = storedName; // Set the stored name as selected
+            }
+        });
+
+        document.getElementById("record-attendance").addEventListener("click", () => {
+            recordAttendance();
+        });
+
+        document.getElementById("mark-absent").addEventListener("click", () => {
+            markAsAbsent();
+        });
+
+        captureButton.addEventListener("click", () => {
+            const context = canvas.getContext("2d");
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            stopCamera();
+
+            video.style.display = "none";
+            canvas.style.display = "block";
+            captureButton.style.display = "none";
+
+            sendAttendance();
+        });
+    </script>
+</body>
+
+</html>
