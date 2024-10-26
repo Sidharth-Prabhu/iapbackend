@@ -86,6 +86,11 @@ app.post("/absent", (req, res) => {
         });
 });
 
+// Catch-all route to serve the frontend by default
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
