@@ -14,7 +14,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 app.use(cors());
 app.use(bodyParser.json({ limit: "10mb" }));
-app.use(express.static(path.join(__dirname, "public"), { maxAge: "1d" }));
 
 // API endpoint to handle attendance submission
 app.post("/attendance", (req, res) => {
@@ -86,14 +85,12 @@ app.post("/absent", (req, res) => {
         });
 });
 
-// Catch-all route to serve the frontend by default
-app.get("/frontend", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, "public"), { maxAge: "1d" }));
 
-// Optional: Redirect the root URL to the frontend
+// Catch-all route to serve the frontend by default
 app.get("/", (req, res) => {
-    res.redirect("/frontend"); // Redirect to the frontend
+    res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.listen(PORT, () => {
