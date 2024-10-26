@@ -87,8 +87,13 @@ app.post("/absent", (req, res) => {
 });
 
 // Catch-all route to serve the frontend by default
-app.get("/", (req, res) => {
+app.get("/frontend", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+// Optional: Redirect the root URL to the frontend
+app.get("/", (req, res) => {
+    res.redirect("/frontend"); // Redirect to the frontend
 });
 
 app.listen(PORT, () => {
